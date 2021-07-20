@@ -78,7 +78,7 @@ def setup_gmail_api():
         logging.debug("Gmail token file found, credentials generated")
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
-        logging.debug("Gmail token file not found, generating token")
+        logging.debug("Generating Gmail credentials")
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
@@ -88,7 +88,7 @@ def setup_gmail_api():
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
-        logging.debug("Gmail token file generated")
+        logging.debug("Gmail token file updated")
 
     GMAIL = build('gmail', 'v1', credentials=creds)
     logging.info("Gmail API setup completed")
