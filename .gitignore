@@ -1,0 +1,11 @@
+*.json
+*.csv
+!finished_template.csv
+!credentials_template.json
+!trello_template.json
+**/venv
+**/__pycache__
+*.pyc
+*.py
+!quickstart.py
+*.log
